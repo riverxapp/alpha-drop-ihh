@@ -3,6 +3,45 @@ import { Button } from "../components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
 import { env } from "../lib/env";
 
+const featuredMenuItems = [
+  {
+    id: "1",
+    name: "Signature Margherita Pizza",
+    description: "Classic Italian pizza with fresh mozzarella, basil, and tomato sauce.",
+    imageUrl: "/gallery/gallery2.jpg",
+  },
+  {
+    id: "2",
+    name: "Handmade Pasta Carbonara",
+    description: "Rich and creamy pasta with pancetta, egg, and Parmesan cheese.",
+    imageUrl: "/gallery/gallery3.jpg",
+  },
+  {
+    id: "3",
+    name: "Seasonal Garden Salad",
+    description: "Fresh vegetables, house-made vinaigrette, and toasted nuts.",
+    imageUrl: "/gallery/gallery1.jpg",
+  },
+];
+
+const testimonials = [
+  {
+    id: "t1",
+    name: "Emily R.",
+    quote: "The ambiance is warm and inviting, and the food is beyond delicious! A must-visit.",
+  },
+  {
+    id: "t2",
+    name: "James K.",
+    quote: "Exceptional service and mouthwatering dishes. We come here every month!",
+  },
+  {
+    id: "t3",
+    name: "Sophia L.",
+    quote: "A perfect spot for family dinners and special occasions. Highly recommend the pasta.",
+  },
+];
+
 export function Home() {
   return (
     <main className="space-y-16 px-4 py-12 sm:px-6 lg:px-8">
@@ -33,6 +72,58 @@ export function Home() {
           Situated in the heart of the city, {env.appName} offers a modern take on classic dishes, blending tradition and innovation.
           Our mission is to provide memorable dining experiences through exceptional food and service.
         </p>
+      </section>
+
+      {/* Featured Menu Section */}
+      <section aria-labelledby="featured-menu-heading" className="max-w-6xl mx-auto space-y-10">
+        <h2 id="featured-menu-heading" className="text-3xl font-semibold text-[#26170e] text-center">
+          Featured Menu Items
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {featuredMenuItems.map(({ id, name, description, imageUrl }) => (
+            <Card key={id} className="shadow-lg border border-transparent hover:border-[#d94828] transition-colors">
+              <img
+                src={imageUrl}
+                alt={name}
+                className="rounded-t-lg aspect-[4/3] w-full object-cover"
+                loading="lazy"
+              />
+              <CardContent className="space-y-1 p-4">
+                <CardHeader className="p-0">
+                  <CardTitle className="text-lg text-[#26170e]">{name}</CardTitle>
+                </CardHeader>
+                <CardDescription className="text-sm text-[#6f5b4a]">{description}</CardDescription>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section aria-labelledby="testimonials-heading" className="max-w-4xl mx-auto space-y-8 text-center">
+        <h2 id="testimonials-heading" className="text-3xl font-semibold text-[#26170e]">
+          What Our Customers Say
+        </h2>
+        <div className="space-y-6">
+          {testimonials.map(({ id, name, quote }) => (
+            <blockquote key={id} className="border-l-4 border-[#ff6b4a] pl-6 italic text-[#6f5b4a]">
+              <p>"{quote}"</p>
+              <footer className="mt-2 font-semibold text-[#26170e]">— {name}</footer>
+            </blockquote>
+          ))}
+        </div>
+      </section>
+
+      {/* Location and Hours Section */}
+      <section aria-labelledby="location-heading" className="max-w-4xl mx-auto space-y-6 text-center">
+        <h2 id="location-heading" className="text-3xl font-semibold text-[#26170e]">
+          Location & Hours
+        </h2>
+        <address className="not-italic text-[#6f5b4a] space-y-2">
+          <p>123 Flavor Street, Foodie City, FC 45678</p>
+          <p>Open Daily: 11:00 AM – 10:00 PM</p>
+          <p>Phone: (123) 456-7890</p>
+        </address>
       </section>
 
       {/* Social Connection */}
