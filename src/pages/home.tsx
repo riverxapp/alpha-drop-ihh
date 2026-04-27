@@ -107,7 +107,7 @@ export function Home() {
         </p>
         <div className="mt-6">
           <Button asChild size="lg" className="bg-[#ff6b4a] text-white hover:bg-[#d94828]">
-            <Link to="/reservation">Make a Reservation</Link>
+            <Link to="/">Make a Reservation</Link>
           </Button>
         </div>
       </section>
