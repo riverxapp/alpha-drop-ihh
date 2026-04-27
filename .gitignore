@@ -5,16 +5,14 @@ node_modules/
 dist/
 
 # environment files
-.env
-.env.*
 !.env.example
 
 # logs
 *.log
 
 # editor files
-.vscode/
 .idea/
 
 # system files
 .DS_Store
+config.bat

@@ -1,4 +1,3 @@
-import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../components/ui/card";
 
 type MenuItem = {
@@ -14,6 +13,8 @@ type MenuCategory = {
   title: string;
   items: MenuItem[];
 };
+
+const pageTitle = "Our Menu";
 
 const menuData: MenuCategory[] = [
   {
@@ -98,17 +99,19 @@ const menuData: MenuCategory[] = [
 
 export function Menu() {
   return (
-    <section className="space-y-12 max-w-5xl mx-auto p-6 sm:p-8">
-      <h1 className="text-4xl font-extrabold text-center text-[#26170e] mb-10 tracking-tight">Our Menu</h1>
+    <main className="mx-auto max-w-5xl space-y-12 px-6 py-8 sm:px-8">
+      <h1 className="mb-10 text-center text-4xl font-extrabold tracking-tight text-[#26170e]">{pageTitle}</h1>
 
-      {menuData.map(category => (
+      {menuData.map((category) => (
         <div key={category.id} className="space-y-8">
-          <h2 className="text-3xl font-semibold text-[#26170e] border-b border-[#f1ddc9] pb-3">{category.title}</h2>
+          <h2 className="border-b border-[#f1ddc9] pb-3 text-3xl font-semibold text-[#26170e]">
+            {category.title}
+          </h2>
           <div className="grid gap-7 sm:grid-cols-2 md:grid-cols-3">
-            {category.items.map(item => (
+            {category.items.map((item) => (
               <Card
                 key={item.id}
-                className="border border-[#f1ddc9] bg-[#fffaf2] flex flex-col shadow-sm hover:shadow-md transition-shadow duration-200 rounded-xl"
+                className="flex flex-col rounded-xl border border-[#f1ddc9] bg-[#fffaf2] shadow-sm transition-shadow duration-200 hover:shadow-md"
                 tabIndex={0}
                 aria-label={`${item.name} - ${item.description}, priced at ${item.price}`}
               >
@@ -122,9 +125,9 @@ export function Menu() {
                     />
                   </div>
                 )}
-                <CardContent className="flex flex-col flex-1 p-5">
+                <CardContent className="flex flex-1 flex-col p-5">
                   <CardHeader className="p-0 mb-3">
-                    <CardTitle className="text-xl text-[#26170e] leading-tight">{item.name}</CardTitle>
+                    <CardTitle className="text-xl leading-tight text-[#26170e]">{item.name}</CardTitle>
                     <CardDescription className="text-base text-[#6f5b4a]">{item.description}</CardDescription>
                   </CardHeader>
                   <div className="mt-auto text-right font-semibold text-[#d94828] text-lg">{item.price}</div>
@@ -134,6 +137,6 @@ export function Menu() {
           </div>
         </div>
       ))}
-    </section>
+    </main>
   );
 }
