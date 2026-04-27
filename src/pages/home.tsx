@@ -132,7 +132,7 @@ export function Home() {
           href="https://facebook.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-[#d94828]"
+          className="hover:text-[#d94828] font-semibold transition-colors duration-200"
           aria-label="Facebook"
         >
           Facebook
@@ -141,7 +141,7 @@ export function Home() {
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-[#d94828]"
+          className="hover:text-[#d94828] font-semibold transition-colors duration-200"
           aria-label="Instagram"
         >
           Instagram
@@ -150,7 +150,7 @@ export function Home() {
           href="https://twitter.com"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-[#d94828]"
+          className="hover:text-[#d94828] font-semibold transition-colors duration-200"
           aria-label="Twitter"
         >
           Twitter
