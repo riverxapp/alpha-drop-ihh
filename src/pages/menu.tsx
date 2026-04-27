@@ -98,17 +98,22 @@ const menuData: MenuCategory[] = [
 
 export function Menu() {
   return (
-    <section className="space-y-10 max-w-5xl mx-auto p-6 sm:p-8">
-      <h1 className="text-4xl font-bold text-center text-[#26170e] mb-8">Our Menu</h1>
+    <section className="space-y-12 max-w-5xl mx-auto p-6 sm:p-8">
+      <h1 className="text-4xl font-extrabold text-center text-[#26170e] mb-10 tracking-tight">Our Menu</h1>
 
       {menuData.map(category => (
-        <div key={category.id} className="space-y-6">
-          <h2 className="text-2xl font-semibold text-[#26170e] border-b border-[#f1ddc9] pb-2">{category.title}</h2>
-          <div className="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+        <div key={category.id} className="space-y-8">
+          <h2 className="text-3xl font-semibold text-[#26170e] border-b border-[#f1ddc9] pb-3">{category.title}</h2>
+          <div className="grid gap-7 sm:grid-cols-2 md:grid-cols-3">
             {category.items.map(item => (
-              <Card key={item.id} className="border-[#f1ddc9] bg-[#fffaf2] flex flex-col">
+              <Card
+                key={item.id}
+                className="border border-[#f1ddc9] bg-[#fffaf2] flex flex-col shadow-sm hover:shadow-md transition-shadow duration-200 rounded-xl"
+                tabIndex={0}
+                aria-label={`${item.name} - ${item.description}, priced at ${item.price}`}
+              >
                 {item.imageUrl && (
-                  <div className="h-40 w-full overflow-hidden rounded-t-xl">
+                  <div className="h-44 w-full overflow-hidden rounded-t-xl">
                     <img
                       src={item.imageUrl}
                       alt={item.name}
@@ -117,12 +122,12 @@ export function Menu() {
                     />
                   </div>
                 )}
-                <CardContent className="flex flex-col flex-1 p-4">
-                  <CardHeader className="p-0 mb-2">
-                    <CardTitle className="text-lg text-[#26170e]">{item.name}</CardTitle>
-                    <CardDescription className="text-[#6f5b4a]">{item.description}</CardDescription>
+                <CardContent className="flex flex-col flex-1 p-5">
+                  <CardHeader className="p-0 mb-3">
+                    <CardTitle className="text-xl text-[#26170e] leading-tight">{item.name}</CardTitle>
+                    <CardDescription className="text-base text-[#6f5b4a]">{item.description}</CardDescription>
                   </CardHeader>
-                  <div className="mt-auto text-right font-semibold text-[#d94828]">{item.price}</div>
+                  <div className="mt-auto text-right font-semibold text-[#d94828] text-lg">{item.price}</div>
                 </CardContent>
               </Card>
             ))}
